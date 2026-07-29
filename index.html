@@ -164,41 +164,61 @@
                 </div>
             </div>
 
-            <div class="flex justify-center">
-                <div class="relative w-full max-w-[280px] sm:max-w-xs">
-                    <div class="absolute -inset-2 bg-gradient-to-r from-brand-pink via-brand-lavender to-brand-peach rounded-3xl blur-lg opacity-50 floating-anim"></div>
+            <div class="flex justify-center w-full">
+                <!-- Ukuran diperkecil 15% (max-w-[230px]) agar lebih nyaman di HP -->
+                <div class="relative w-full max-w-[230px] sm:max-w-[260px]">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-brand-pink via-brand-lavender to-brand-peach rounded-[2rem] blur-lg opacity-50 floating-anim"></div>
                     
-                    <div class="relative glass-card rounded-3xl p-5 shadow-2xl text-center space-y-4 border border-white">
-                        <div class="relative w-24 h-24 mx-auto">
-                            <img src="https://placehold.co/200x200/ffb7c5/ffffff?text=Kyoshii" alt="Kyoshii Khay11 Avatar" class="w-full h-full rounded-2xl object-cover border-4 border-white shadow-md">
+                    <div class="relative glass-card rounded-[2rem] p-4 sm:p-5 shadow-2xl border border-white flex flex-col gap-4 transition-all duration-300">
+                        <!-- Top Row: Now Playing & Genre -->
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-bold tracking-widest text-brand-subtle uppercase">Now Playing</span>
+                            <span id="player-genre" class="px-2 py-0.5 rounded-full bg-brand-lavenderlight text-brand-dark text-[9px] font-semibold border border-purple-100 shadow-sm">Lofi</span>
                         </div>
 
-                        <div>
-                            <h2 class="font-heading font-bold text-lg text-brand-dark leading-none">Kyoshii Khay11</h2>
-                            <p class="text-[10px] text-brand-pink font-semibold mt-1">@kyoshii_khay11</p>
-                        </div>
-
-                        <!-- Mini Interactive Player Card -->
-                        <div class="bg-brand-bg rounded-2xl p-3 text-left border border-pink-100 shadow-inner space-y-2">
-                            <div class="flex items-center justify-between text-[10px] text-brand-subtle">
-                                <span class="font-semibold text-brand-dark"><i class="fa-solid fa-compact-disc text-brand-pink animate-spin"></i> Live Synth</span>
-                                <span id="hero-status">Ready</span>
+                        <!-- Artwork -->
+                        <div class="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-2xl overflow-hidden shadow-md group">
+                            <div class="absolute inset-0 bg-brand-lavenderlight animate-pulse -z-10"></div>
+                            <img id="player-cover" src="https://placehold.co/200x200/e2d5f8/ffffff?text=Lofi" alt="Album Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <!-- Overlay Hover Effect -->
+                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                                <i class="fa-solid fa-compact-disc text-white text-3xl sm:text-4xl animate-[spin_4s_linear_infinite] drop-shadow-md"></i>
                             </div>
-                            
-                            <div class="flex items-center gap-2">
-                                <button id="hero-play-btn" onclick="playHeroPreview()" class="min-w-[36px] h-9 rounded-full bg-brand-pink text-white flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all">
-                                    <i class="fa-solid fa-play text-xs ml-0.5" id="hero-icon"></i>
+                        </div>
+
+                        <!-- Info (Title & Artist) -->
+                        <div class="text-center space-y-0.5 mt-1">
+                            <h2 id="player-title" class="font-heading font-bold text-base sm:text-lg text-brand-dark leading-tight truncate px-2">Midnight Cafe</h2>
+                            <p class="text-[10px] text-brand-pink font-semibold">Kyoshii Khay11</p>
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="flex items-center justify-center gap-4 sm:gap-5 mt-1">
+                            <button onclick="prevSong()" class="w-8 h-8 flex items-center justify-center text-brand-subtle hover:text-brand-pink active:scale-95 transition-all">
+                                <i class="fa-solid fa-backward-step text-sm"></i>
+                            </button>
+                            <div class="relative">
+                                <!-- Glowing ring di belakang tombol play saat aktif -->
+                                <div id="player-ring" class="absolute inset-0 rounded-full bg-brand-pink blur-md opacity-0 transition-opacity duration-300"></div>
+                                <button onclick="togglePlay()" class="relative z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-brand-pink to-purple-400 text-white flex items-center justify-center shadow-lg hover:shadow-pink-300/50 hover:scale-105 active:scale-95 transition-all">
+                                    <i class="fa-solid fa-play text-base sm:text-lg ml-0.5" id="player-play-icon"></i>
                                 </button>
-                                <div class="flex-1 min-w-0">
-                                    <p class="text-xs font-bold text-brand-dark truncate">Pastel Dream</p>
-                                    <div class="flex items-end gap-1 h-3 mt-1" id="visualizer-bars">
-                                        <div class="bar w-1 bg-brand-pink rounded-full h-1"></div>
-                                        <div class="bar w-1 bg-brand-pink rounded-full h-2"></div>
-                                        <div class="bar w-1 bg-brand-pink rounded-full h-3"></div>
-                                        <div class="bar w-1 bg-brand-pink rounded-full h-1"></div>
-                                        <div class="bar w-1 bg-brand-pink rounded-full h-2"></div>
-                                    </div>
+                            </div>
+                            <button onclick="nextSong()" class="w-8 h-8 flex items-center justify-center text-brand-subtle hover:text-brand-pink active:scale-95 transition-all">
+                                <i class="fa-solid fa-forward-step text-sm"></i>
+                            </button>
+                        </div>
+
+                        <!-- Progress Bar & Duration -->
+                        <div class="space-y-1.5 mt-1">
+                            <div class="h-1.5 w-full bg-black/5 rounded-full overflow-hidden relative shadow-inner">
+                                <div id="player-progress" class="h-full bg-gradient-to-r from-brand-pink to-purple-400 w-0 rounded-full transition-all duration-1000 ease-linear relative">
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white rounded-full shadow-sm border border-brand-pinklight translate-x-1/2"></div>
                                 </div>
+                            </div>
+                            <div class="flex items-center justify-between text-[9px] sm:text-[10px] font-semibold text-brand-subtle/80">
+                                <span id="player-time-current">0:00</span>
+                                <span id="player-time-total">2:45</span>
                             </div>
                         </div>
                     </div>
@@ -223,7 +243,41 @@
                     <div class="snap-start shrink-0 w-52 glass-card p-2.5 rounded-2xl border border-purple-100 flex items-center gap-3 hover:shadow-md transition-shadow">
                         <div class="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden group">
                             <img src="https://placehold.co/100x100/e2d5f8/ffffff?text=Lofi" alt="Lofi Art" class="w-full h-full object-cover">
-                            <button onclick="playMusic('Midnight Cafe')" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
+                            <button onclick="playPlaylistSong(0)" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
+                                <i class="fa-solid fa-play text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Midnight Cafe</h3>
+                            <p class="text-[9px] text-brand-subtle mb-1">Lofi / Chill Beats</p>
+                            <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
+                                <div class="w-1/3 h-full bg-purple-400 rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Music Card 2 -->
+                    <div class="snap-start shrink-0 w-52 glass-card p-2.5 rounded-2xl border border-pink-100 flex items-center gap-3 hover:shadow-md transition-shadow">
+                        <div class="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden group">
+                            <img src="https://placehold.co/100x100/ffb7c5/ffffff?text=Kawaii" alt="Kawaii Art" class="w-full h-full object-cover">
+                            <button onclick="playPlaylistSong(1)" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
+                                <i class="fa-solid fa-play text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Sugar Rush</h3>
+                            <p class="text-[9px] text-brand-subtle mb-1">Kawaii / Cute EDM</p>
+                            <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
+                                <div class="w-1/2 h-full bg-brand-pink rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Music Card 3 -->
+                    <div class="snap-start shrink-0 w-52 glass-card p-2.5 rounded-2xl border border-amber-100 flex items-center gap-3 hover:shadow-md transition-shadow">
+                        <div class="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden group">
+                            <img src="https://placehold.co/100x100/ffd3b6/ffffff?text=Acoustic" alt="Acoustic Art" class="w-full h-full object-cover">
+                            <button onclick="playPlaylistSong(2)" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
                                 <i class="fa-solid fa-play text-sm"></i>
                             </button>
                         </div>
@@ -392,12 +446,109 @@
             osc.stop(audioCtx.currentTime + 0.5);
         }
 
-        function playMusic(title) {
-            showToast('🎵 Playing: ' + title);
-            playBeep(440, 'sine');
-            setTimeout(() => playBeep(554, 'sine'), 200);
-            setTimeout(() => playBeep(659, 'sine'), 400);
+        const playlist = [
+            { title: "Midnight Cafe", genre: "Lofi", cover: "https://placehold.co/200x200/e2d5f8/ffffff?text=Lofi", duration: "2:45", durationSec: 165 },
+            { title: "Sugar Rush", genre: "Kawaii", cover: "https://placehold.co/200x200/ffb7c5/ffffff?text=Kawaii", duration: "3:12", durationSec: 192 },
+            { title: "Sunny Day", genre: "Acoustic", cover: "https://placehold.co/200x200/ffd3b6/ffffff?text=Acoustic", duration: "2:30", durationSec: 150 }
+        ];
+
+        let currentSongIndex = 0;
+        let isPlaying = false;
+        let currentSeconds = 0;
+        let progressInterval = null;
+
+        function updatePlayerUI() {
+            const song = playlist[currentSongIndex];
+            document.getElementById('player-title').innerText = song.title;
+            document.getElementById('player-genre').innerText = song.genre;
+            document.getElementById('player-cover').src = song.cover;
+            document.getElementById('player-time-total').innerText = song.duration;
+            
+            if (!isPlaying) {
+                currentSeconds = 0;
+                document.getElementById('player-time-current').innerText = "0:00";
+                document.getElementById('player-progress').style.width = "0%";
+            }
         }
+
+        function formatTime(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            const icon = document.getElementById('player-play-icon');
+            const ring = document.getElementById('player-ring');
+            
+            if (isPlaying) {
+                // UI changes to "Playing" state
+                icon.classList.remove('fa-play', 'ml-0.5');
+                icon.classList.add('fa-pause');
+                ring.classList.remove('opacity-0');
+                ring.classList.add('opacity-100', 'animate-pulse');
+                
+                playBeep(440, 'sine'); // Simple audio cue for feedback
+                
+                // Start progress timer visualization
+                progressInterval = setInterval(() => {
+                    const song = playlist[currentSongIndex];
+                    currentSeconds++;
+                    if (currentSeconds >= song.durationSec) {
+                        nextSong(); // Auto-play next song when finished
+                    } else {
+                        document.getElementById('player-time-current').innerText = formatTime(currentSeconds);
+                        const pct = (currentSeconds / song.durationSec) * 100;
+                        document.getElementById('player-progress').style.width = `${pct}%`;
+                    }
+                }, 1000); 
+            } else {
+                // UI changes to "Paused" state
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play', 'ml-0.5');
+                ring.classList.remove('opacity-100', 'animate-pulse');
+                ring.classList.add('opacity-0');
+                clearInterval(progressInterval);
+            }
+        }
+
+        function playPlaylistSong(index) {
+            if (isPlaying && currentSongIndex === index) return;
+            
+            if (isPlaying) {
+                togglePlay(); // Pause current before switching
+            }
+            currentSongIndex = index;
+            currentSeconds = 0;
+            updatePlayerUI();
+            togglePlay(); // Play new selection automatically
+            showToast('🎵 Now Playing: ' + playlist[currentSongIndex].title);
+            
+            // Scroll sedikit ke atas agar Music Player terlihat jelas (terutama di HP)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextSong() {
+            if (isPlaying) togglePlay();
+            currentSongIndex = (currentSongIndex + 1) % playlist.length;
+            currentSeconds = 0;
+            updatePlayerUI();
+            togglePlay();
+        }
+
+        function prevSong() {
+            if (isPlaying) togglePlay();
+            currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+            currentSeconds = 0;
+            updatePlayerUI();
+            togglePlay();
+        }
+        
+        // Initialize player values on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updatePlayerUI();
+        });
 
         function playSFX(type) {
             showToast('🔊 Playing SFX: ' + type);
