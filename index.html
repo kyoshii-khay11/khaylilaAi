@@ -110,8 +110,7 @@
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-brand-subtle">
                 <a href="#hero" class="hover:text-brand-pink transition-colors">Home</a>
-                <a href="#showcase" class="hover:text-brand-pink transition-colors">Music</a>
-                <a href="#showcase" class="hover:text-brand-pink transition-colors">Audio Studio</a>
+                <a href="#showcase" class="hover:text-brand-pink transition-colors">Music & Studio</a>
                 <a href="#showcase" class="hover:text-brand-pink transition-colors">Visuals</a>
             </nav>
 
@@ -123,7 +122,7 @@
 
         <!-- Mobile Nav Menu -->
         <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass-card rounded-2xl p-4 flex-col gap-3 text-center text-sm font-medium shadow-lg">
-            <a href="#showcase" class="py-1.5 hover:text-brand-pink transition-colors">View All Works & Studio</a>
+            <a href="#showcase" class="py-1.5 hover:text-brand-pink transition-colors">View All Works</a>
         </div>
     </header>
 
@@ -212,25 +211,25 @@
     <section id="showcase" class="py-8 px-4 bg-white/60 rounded-t-[2.5rem]">
         <div class="max-w-6xl mx-auto space-y-8">
             
-            <!-- Showcase Audio Horizontal Scroll -->
+            <!-- Showcase Audio Horizontal Scroll (Compact) -->
             <div class="space-y-4">
                 <div class="flex items-center justify-between px-2">
                     <h2 class="font-heading text-xl font-bold text-brand-dark"><i class="fa-solid fa-headphones-simple text-purple-400 mr-1"></i> Featured Music</h2>
                     <span class="text-[10px] text-brand-subtle">Swipe <i class="fa-solid fa-arrow-right-long"></i></span>
                 </div>
                 
-                <div class="flex overflow-x-auto gap-4 pb-2 snap-x hide-scrollbar px-2">
+                <div class="flex overflow-x-auto gap-3 pb-2 snap-x hide-scrollbar px-2">
                     <!-- Music Card 1 -->
-                    <div class="snap-start shrink-0 w-64 glass-card p-3 rounded-2xl border border-purple-100 flex items-center gap-4 hover:shadow-md transition-shadow">
-                        <div class="relative w-16 h-16 shrink-0 rounded-xl overflow-hidden group">
+                    <div class="snap-start shrink-0 w-52 glass-card p-2.5 rounded-2xl border border-purple-100 flex items-center gap-3 hover:shadow-md transition-shadow">
+                        <div class="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden group">
                             <img src="https://placehold.co/100x100/e2d5f8/ffffff?text=Lofi" alt="Lofi Art" class="w-full h-full object-cover">
                             <button onclick="playMusic('Midnight Cafe')" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
-                                <i class="fa-solid fa-play"></i>
+                                <i class="fa-solid fa-play text-sm"></i>
                             </button>
                         </div>
                         <div class="flex-1 min-w-0">
                             <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Midnight Cafe</h3>
-                            <p class="text-[10px] text-brand-subtle mb-1.5">Lofi / Chill Beats</p>
+                            <p class="text-[9px] text-brand-subtle mb-1">Lofi / Chill Beats</p>
                             <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
                                 <div class="w-1/3 h-full bg-purple-400 rounded-full animate-pulse"></div>
                             </div>
@@ -238,16 +237,16 @@
                     </div>
 
                     <!-- Music Card 2 -->
-                    <div class="snap-start shrink-0 w-64 glass-card p-3 rounded-2xl border border-pink-100 flex items-center gap-4 hover:shadow-md transition-shadow">
-                        <div class="relative w-16 h-16 shrink-0 rounded-xl overflow-hidden group">
+                    <div class="snap-start shrink-0 w-52 glass-card p-2.5 rounded-2xl border border-pink-100 flex items-center gap-3 hover:shadow-md transition-shadow">
+                        <div class="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden group">
                             <img src="https://placehold.co/100x100/ffb7c5/ffffff?text=Kawaii" alt="Kawaii Art" class="w-full h-full object-cover">
                             <button onclick="playMusic('Sugar Rush')" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
-                                <i class="fa-solid fa-play"></i>
+                                <i class="fa-solid fa-play text-sm"></i>
                             </button>
                         </div>
                         <div class="flex-1 min-w-0">
                             <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Sugar Rush</h3>
-                            <p class="text-[10px] text-brand-subtle mb-1.5">Kawaii / Cute EDM</p>
+                            <p class="text-[9px] text-brand-subtle mb-1">Kawaii / Cute EDM</p>
                             <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
                                 <div class="w-1/2 h-full bg-brand-pink rounded-full animate-pulse"></div>
                             </div>
@@ -255,16 +254,16 @@
                     </div>
 
                     <!-- Music Card 3 -->
-                    <div class="snap-start shrink-0 w-64 glass-card p-3 rounded-2xl border border-amber-100 flex items-center gap-4 hover:shadow-md transition-shadow">
-                        <div class="relative w-16 h-16 shrink-0 rounded-xl overflow-hidden group">
+                    <div class="snap-start shrink-0 w-52 glass-card p-2.5 rounded-2xl border border-amber-100 flex items-center gap-3 hover:shadow-md transition-shadow">
+                        <div class="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden group">
                             <img src="https://placehold.co/100x100/ffd3b6/ffffff?text=Acoustic" alt="Acoustic Art" class="w-full h-full object-cover">
                             <button onclick="playMusic('Sunny Day')" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
-                                <i class="fa-solid fa-play"></i>
+                                <i class="fa-solid fa-play text-sm"></i>
                             </button>
                         </div>
                         <div class="flex-1 min-w-0">
                             <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Sunny Day</h3>
-                            <p class="text-[10px] text-brand-subtle mb-1.5">Acoustic Pop</p>
+                            <p class="text-[9px] text-brand-subtle mb-1">Acoustic Pop</p>
                             <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
                                 <div class="w-2/3 h-full bg-amber-400 rounded-full animate-pulse"></div>
                             </div>
@@ -280,7 +279,6 @@
                 </div>
                 
                 <div class="flex overflow-x-auto gap-3 pb-2 snap-x hide-scrollbar px-2">
-                    <!-- Soundboard Buttons -->
                     <button onclick="playSFX('pop')" class="snap-start shrink-0 w-32 glass-card p-4 rounded-2xl active:scale-95 hover:border-brand-pink transition-all text-center space-y-2 border border-pink-100">
                         <div class="w-10 h-10 rounded-xl bg-pink-100 text-brand-pink flex items-center justify-center mx-auto"><i class="fa-solid fa-bullhorn"></i></div>
                         <p class="text-xs font-bold text-brand-dark truncate">Intro Pop</p>
@@ -331,7 +329,6 @@
             </div>
 
             <div class="mt-4 relative overflow-hidden rounded-3xl glass-card border-2 border-white p-6 sm:p-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-pink-100/50">
-                <!-- Background Decoration -->
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-pinklight rounded-full blur-3xl -z-10 opacity-70 translate-x-1/2 -translate-y-1/2"></div>
                 <div class="absolute bottom-0 left-0 w-48 h-48 bg-brand-lavenderlight rounded-full blur-3xl -z-10 opacity-70 -translate-x-1/2 translate-y-1/2"></div>
                 
@@ -346,7 +343,6 @@
                 </div>
                 
                 <div class="z-10 shrink-0 w-full sm:w-auto">
-                    <!-- Replace '#' below with your Payhip store link -->
                     <a href="#" target="_blank" rel="noopener" class="group relative flex w-full sm:inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 bg-brand-pink rounded-2xl hover:bg-[#ff8da0] hover:shadow-lg hover:shadow-pink-300/50 hover:-translate-y-1">
                         <i class="fa-solid fa-cart-shopping mr-2 group-hover:animate-bounce"></i>
                         Visit Store
@@ -369,14 +365,12 @@
         </div>
     </footer>
 
-    <!-- Notification Toast Element -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 transition-all duration-300 z-50 glass-card px-5 py-3 rounded-full shadow-lg border border-pink-200 flex items-center gap-3">
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 transition-all duration-300 z-50 glass-card px-5 py-3 rounded-full shadow-lg border border-pink-200 flex items-center gap-3 pointer-events-none">
         <div class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></div>
         <p id="toast-msg" class="text-sm font-bold text-brand-dark font-heading">Notification</p>
     </div>
 
     <script>
-        // Web Audio API Synthesizer setup for real live sound synthesis
         let audioCtx = null;
 
         function initAudio() {
@@ -428,7 +422,6 @@
             setTimeout(() => playBeep(783, 'square'), 300);
         }
         
-        // Toast Notification System
         function showToast(msg) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
@@ -439,7 +432,6 @@
             }, 2500);
         }
 
-        // Mobile Nav Toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
