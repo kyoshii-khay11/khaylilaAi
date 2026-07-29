@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kyoshii Khay11 — Digital Audio Architect & Visual Storyteller</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +12,6 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -81,9 +79,17 @@
             100% { box-shadow: 0 0 30px rgba(226, 213, 248, 0.6); }
         }
 
-        /* Custom Audio Visualizer Bar */
         .bar {
             transition: height 0.15s ease;
+        }
+
+        /* Hide scrollbar for horizontal scroll on mobile */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
@@ -103,112 +109,89 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-brand-subtle">
-                <a href="#about" class="hover:text-brand-pink transition-colors">Tentang Saya</a>
-                <a href="#services" class="hover:text-brand-pink transition-colors">Keahlian</a>
-                <a href="#featured" class="hover:text-brand-pink transition-colors">Karya Unggulan</a>
-                <a href="#soundboard" class="hover:text-brand-pink transition-colors">Audio Studio</a>
-                <a href="#gallery" class="hover:text-brand-pink transition-colors">Galeri Visual</a>
+                <a href="#hero" class="hover:text-brand-pink transition-colors">Home</a>
+                <a href="#showcase" class="hover:text-brand-pink transition-colors">Music</a>
+                <a href="#showcase" class="hover:text-brand-pink transition-colors">Audio Studio</a>
+                <a href="#showcase" class="hover:text-brand-pink transition-colors">Visuals</a>
             </nav>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="md:hidden text-brand-dark text-xl focus:outline-none">
+            <button id="mobile-menu-btn" class="md:hidden text-brand-dark text-xl focus:outline-none p-1">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
         </div>
 
         <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass-card rounded-2xl p-5 flex-col gap-4 text-center text-sm font-medium shadow-lg">
-            <a href="#about" class="py-2 hover:text-brand-pink">Tentang Saya</a>
-            <a href="#services" class="py-2 hover:text-brand-pink">Keahlian</a>
-            <a href="#featured" class="py-2 hover:text-brand-pink">Karya Unggulan</a>
-            <a href="#soundboard" class="py-2 hover:text-brand-pink">Audio Studio</a>
-            <a href="#gallery" class="py-2 hover:text-brand-pink">Galeri Visual</a>
+        <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass-card rounded-2xl p-4 flex-col gap-3 text-center text-sm font-medium shadow-lg">
+            <a href="#showcase" class="py-1.5 hover:text-brand-pink transition-colors">View All Works & Studio</a>
         </div>
     </header>
 
-    <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 overflow-hidden relative">
-        <!-- Background Ambient Shapes -->
+    <section id="hero" class="pt-24 pb-8 md:pt-32 md:pb-12 px-4 overflow-hidden relative">
         <div class="absolute top-10 left-10 w-72 h-72 bg-brand-pinklight rounded-full blur-3xl -z-10 opacity-70"></div>
         <div class="absolute bottom-10 right-10 w-80 h-80 bg-brand-lavenderlight rounded-full blur-3xl -z-10 opacity-80"></div>
 
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             
             <!-- Left Info -->
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-pinklight shadow-sm text-xs font-semibold text-brand-pink">
-                    <span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span>
-                    Bersenang-senang Menghasilkan Karya Kreatif
+            <div class="space-y-4 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-pinklight shadow-sm text-[10px] sm:text-xs font-semibold text-brand-pink">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse"></span>
+                    Having Fun Creating Art
                 </div>
 
-                <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-brand-dark">
-                    Menciptakan <span class="bg-gradient-to-r from-brand-pink to-purple-400 bg-clip-text text-transparent">Suasana Audio</span> & Estetika Visual Yang Imersif.
+                <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-brand-dark">
+                    Creating Immersive <span class="bg-gradient-to-r from-brand-pink to-purple-400 bg-clip-text text-transparent">Audio</span> & Visuals.
                 </h1>
 
-                <p class="text-brand-subtle text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Halo! Saya <span class="font-bold text-brand-dark">Kyoshii Khay11</span>. Saya merancang identitas suara manis (*cute audio branding*), komposisi lofi santai, serta karakter animasi visual untuk menghidupkan karya para kreator digital.
+                <p class="text-brand-subtle text-sm sm:text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
+                    Designing sweet sound identities (cute audio) & pastel animated characters to bring digital worlds to life.
                 </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                    <a href="#featured" class="bg-brand-dark hover:bg-black text-white text-sm font-semibold px-7 py-3.5 rounded-full shadow-lg hover:scale-105 transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-play text-xs text-brand-pink"></i> Dengarkan Karya Unggulan
-                    </a>
-                    <a href="#gallery" class="bg-white hover:bg-gray-50 border border-gray-200 text-brand-dark text-sm font-semibold px-7 py-3.5 rounded-full shadow-sm hover:scale-105 transition-all">
-                        Lihat Galeri Visual
-                    </a>
-                </div>
-
-                <!-- Stats / Social Proof -->
-                <div class="pt-8 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 border-t border-pink-100/60">
-                    <div>
-                        <p class="font-heading font-bold text-2xl text-brand-dark">12+</p>
-                        <p class="text-xs text-brand-subtle font-medium">Original Tracks</p>
+                
+                <!-- Social & Stats -->
+                <div class="flex items-center justify-center lg:justify-start gap-6 pt-2">
+                    <div class="flex items-center gap-4 text-brand-subtle text-xl">
+                        <a href="https://youtube.com" target="_blank" rel="noopener" class="hover:text-brand-pink hover:-translate-y-0.5 transition-all"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-brand-pink hover:-translate-y-0.5 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://soundcloud.com" target="_blank" rel="noopener" class="hover:text-brand-pink hover:-translate-y-0.5 transition-all"><i class="fa-brands fa-soundcloud"></i></a>
                     </div>
-                    <div>
-                        <p class="font-heading font-bold text-2xl text-brand-dark">20+</p>
-                        <p class="text-xs text-brand-subtle font-medium">SFX & Intro Pack</p>
-                    </div>
-                    <div>
-                        <p class="font-heading font-bold text-2xl text-brand-dark">100%</p>
-                        <p class="text-xs text-brand-subtle font-medium">Sweet Aesthetic</p>
+                    <div class="h-8 w-px bg-pink-200"></div>
+                    <div class="flex gap-4 text-left">
+                        <div>
+                            <p class="font-heading font-bold text-lg text-brand-dark leading-none">30+</p>
+                            <p class="text-[10px] text-brand-subtle font-medium">Original Works</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Hero Visual Card -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-full max-w-sm">
-                    <!-- Decorative Ring -->
+            <div class="flex justify-center">
+                <div class="relative w-full max-w-[280px] sm:max-w-xs">
                     <div class="absolute -inset-2 bg-gradient-to-r from-brand-pink via-brand-lavender to-brand-peach rounded-3xl blur-lg opacity-50 floating-anim"></div>
                     
-                    <div class="relative glass-card rounded-3xl p-6 shadow-2xl text-center space-y-5 border border-white">
-                        <div class="relative w-32 h-32 mx-auto">
+                    <div class="relative glass-card rounded-3xl p-5 shadow-2xl text-center space-y-4 border border-white">
+                        <div class="relative w-24 h-24 mx-auto">
                             <img src="https://placehold.co/200x200/ffb7c5/ffffff?text=Kyoshii" alt="Kyoshii Khay11 Avatar" class="w-full h-full rounded-2xl object-cover border-4 border-white shadow-md">
-                            <span class="absolute -bottom-2 -right-2 bg-brand-mint text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full shadow-sm border border-white">
-                                <i class="fa-solid fa-check"></i> Creator
-                            </span>
                         </div>
 
                         <div>
-                            <h2 class="font-heading font-bold text-xl text-brand-dark">Kyoshii Khay11</h2>
-                            <p class="text-xs text-brand-pink font-semibold">@kyoshii_khay11</p>
+                            <h2 class="font-heading font-bold text-lg text-brand-dark leading-none">Kyoshii Khay11</h2>
+                            <p class="text-[10px] text-brand-pink font-semibold mt-1">@kyoshii_khay11</p>
                         </div>
 
                         <!-- Mini Interactive Player Card -->
-                        <div class="bg-brand-bg rounded-2xl p-4 text-left border border-pink-100 shadow-inner space-y-3">
-                            <div class="flex items-center justify-between text-xs text-brand-subtle">
-                                <span class="font-semibold text-brand-dark"><i class="fa-solid fa-compact-disc text-brand-pink animate-spin"></i> Direct Sound Preview</span>
+                        <div class="bg-brand-bg rounded-2xl p-3 text-left border border-pink-100 shadow-inner space-y-2">
+                            <div class="flex items-center justify-between text-[10px] text-brand-subtle">
+                                <span class="font-semibold text-brand-dark"><i class="fa-solid fa-compact-disc text-brand-pink animate-spin"></i> Live Synth</span>
                                 <span id="hero-status">Ready</span>
                             </div>
                             
-                            <div class="flex items-center gap-3">
-                                <button id="hero-play-btn" onclick="playHeroPreview()" class="w-11 h-11 rounded-full bg-brand-pink text-white flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all">
-                                    <i class="fa-solid fa-play text-sm ml-0.5" id="hero-icon"></i>
+                            <div class="flex items-center gap-2">
+                                <button id="hero-play-btn" onclick="playHeroPreview()" class="min-w-[36px] h-9 rounded-full bg-brand-pink text-white flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all">
+                                    <i class="fa-solid fa-play text-xs ml-0.5" id="hero-icon"></i>
                                 </button>
-                                <div class="flex-1">
-                                    <p class="text-xs font-bold text-brand-dark truncate">Pastel Dream Chime</p>
-                                    <p class="text-[10px] text-brand-subtle">Web Audio Synth Demo</p>
-                                    <!-- Dynamic Wave Visualizer -->
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-xs font-bold text-brand-dark truncate">Pastel Dream</p>
                                     <div class="flex items-end gap-1 h-3 mt-1" id="visualizer-bars">
                                         <div class="bar w-1 bg-brand-pink rounded-full h-1"></div>
                                         <div class="bar w-1 bg-brand-pink rounded-full h-2"></div>
@@ -219,280 +202,177 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
 
-                        <!-- Social Quick Links -->
-                        <div class="flex items-center justify-center gap-3 text-brand-subtle text-base">
-                            <a href="#" class="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-brand-pink hover:text-white transition-all"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="#" class="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-brand-pink hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-brand-pink hover:text-white transition-all"><i class="fa-brands fa-soundcloud"></i></a>
-                            <a href="#" class="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-brand-pink hover:text-white transition-all"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </section>
+
+    <section id="showcase" class="py-8 px-4 bg-white/60 rounded-t-[2.5rem]">
+        <div class="max-w-6xl mx-auto space-y-8">
+            
+            <!-- Showcase Audio Horizontal Scroll -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between px-2">
+                    <h2 class="font-heading text-xl font-bold text-brand-dark"><i class="fa-solid fa-headphones-simple text-purple-400 mr-1"></i> Featured Music</h2>
+                    <span class="text-[10px] text-brand-subtle">Swipe <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+                
+                <div class="flex overflow-x-auto gap-4 pb-2 snap-x hide-scrollbar px-2">
+                    <!-- Music Card 1 -->
+                    <div class="snap-start shrink-0 w-64 glass-card p-3 rounded-2xl border border-purple-100 flex items-center gap-4 hover:shadow-md transition-shadow">
+                        <div class="relative w-16 h-16 shrink-0 rounded-xl overflow-hidden group">
+                            <img src="https://placehold.co/100x100/e2d5f8/ffffff?text=Lofi" alt="Lofi Art" class="w-full h-full object-cover">
+                            <button onclick="playMusic('Midnight Cafe')" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Midnight Cafe</h3>
+                            <p class="text-[10px] text-brand-subtle mb-1.5">Lofi / Chill Beats</p>
+                            <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
+                                <div class="w-1/3 h-full bg-purple-400 rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Music Card 2 -->
+                    <div class="snap-start shrink-0 w-64 glass-card p-3 rounded-2xl border border-pink-100 flex items-center gap-4 hover:shadow-md transition-shadow">
+                        <div class="relative w-16 h-16 shrink-0 rounded-xl overflow-hidden group">
+                            <img src="https://placehold.co/100x100/ffb7c5/ffffff?text=Kawaii" alt="Kawaii Art" class="w-full h-full object-cover">
+                            <button onclick="playMusic('Sugar Rush')" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Sugar Rush</h3>
+                            <p class="text-[10px] text-brand-subtle mb-1.5">Kawaii / Cute EDM</p>
+                            <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
+                                <div class="w-1/2 h-full bg-brand-pink rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Music Card 3 -->
+                    <div class="snap-start shrink-0 w-64 glass-card p-3 rounded-2xl border border-amber-100 flex items-center gap-4 hover:shadow-md transition-shadow">
+                        <div class="relative w-16 h-16 shrink-0 rounded-xl overflow-hidden group">
+                            <img src="https://placehold.co/100x100/ffd3b6/ffffff?text=Acoustic" alt="Acoustic Art" class="w-full h-full object-cover">
+                            <button onclick="playMusic('Sunny Day')" class="absolute inset-0 bg-black/30 hover:bg-black/50 flex items-center justify-center text-white active:scale-95 transition-all">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-bold text-brand-dark truncate font-heading">Sunny Day</h3>
+                            <p class="text-[10px] text-brand-subtle mb-1.5">Acoustic Pop</p>
+                            <div class="w-full bg-brand-bg h-1 rounded-full overflow-hidden">
+                                <div class="w-2/3 h-full bg-amber-400 rounded-full animate-pulse"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
-    </section>
+            <div class="space-y-4 pt-4 border-t border-pink-50">
+                <div class="flex items-center justify-between px-2">
+                    <h2 class="font-heading text-xl font-bold text-brand-dark"><i class="fa-solid fa-wand-magic-sparkles text-brand-pink mr-1"></i> Audio Studio (SFX)</h2>
+                    <span class="text-[10px] text-brand-subtle">Swipe <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+                
+                <div class="flex overflow-x-auto gap-3 pb-2 snap-x hide-scrollbar px-2">
+                    <!-- Soundboard Buttons -->
+                    <button onclick="playSFX('pop')" class="snap-start shrink-0 w-32 glass-card p-4 rounded-2xl active:scale-95 hover:border-brand-pink transition-all text-center space-y-2 border border-pink-100">
+                        <div class="w-10 h-10 rounded-xl bg-pink-100 text-brand-pink flex items-center justify-center mx-auto"><i class="fa-solid fa-bullhorn"></i></div>
+                        <p class="text-xs font-bold text-brand-dark truncate">Intro Pop</p>
+                    </button>
+                    <button onclick="playSFX('sparkle')" class="snap-start shrink-0 w-32 glass-card p-4 rounded-2xl active:scale-95 hover:border-purple-300 transition-all text-center space-y-2 border border-purple-100">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-500 flex items-center justify-center mx-auto"><i class="fa-solid fa-wand-magic"></i></div>
+                        <p class="text-xs font-bold text-brand-dark truncate">Sparkle</p>
+                    </button>
+                    <button onclick="playSFX('bell')" class="snap-start shrink-0 w-32 glass-card p-4 rounded-2xl active:scale-95 hover:border-amber-300 transition-all text-center space-y-2 border border-amber-100">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-500 flex items-center justify-center mx-auto"><i class="fa-solid fa-bell"></i></div>
+                        <p class="text-xs font-bold text-brand-dark truncate">Happy Bell</p>
+                    </button>
+                    <button onclick="playSFX('whoosh')" class="snap-start shrink-0 w-32 glass-card p-4 rounded-2xl active:scale-95 hover:border-blue-300 transition-all text-center space-y-2 border border-blue-100">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-500 flex items-center justify-center mx-auto"><i class="fa-solid fa-wind"></i></div>
+                        <p class="text-xs font-bold text-brand-dark truncate">Whoosh</p>
+                    </button>
+                    <button onclick="playSFX('click')" class="snap-start shrink-0 w-32 glass-card p-4 rounded-2xl active:scale-95 hover:border-emerald-300 transition-all text-center space-y-2 border border-emerald-100">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-500 flex items-center justify-center mx-auto"><i class="fa-solid fa-hand-pointer"></i></div>
+                        <p class="text-xs font-bold text-brand-dark truncate">Click UI</p>
+                    </button>
+                    <button onclick="playSFX('lullaby')" class="snap-start shrink-0 w-32 glass-card p-4 rounded-2xl active:scale-95 hover:border-rose-300 transition-all text-center space-y-2 border border-rose-100">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-500 flex items-center justify-center mx-auto"><i class="fa-solid fa-moon"></i></div>
+                        <p class="text-xs font-bold text-brand-dark truncate">Lullaby</p>
+                    </button>
+                </div>
+            </div>
 
-    <section id="about" class="py-20 px-4 bg-white/60">
-        <div class="max-w-5xl mx-auto">
-            <div class="glass-card rounded-3xl p-8 md:p-12 shadow-xl border border-pink-100">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                    <div class="md:col-span-5 space-y-4">
-                        <span class="text-xs font-bold uppercase tracking-widest text-brand-pink">Kisah & Filosofi</span>
-                        <h2 class="font-heading text-3xl font-bold text-brand-dark leading-tight">
-                            "Menyajikan Musik & Visual Yang Memberi Rasa Nyaman."
-                        </h2>
-                        <div class="w-12 h-1 bg-brand-pink rounded-full"></div>
+            <div class="space-y-4 pt-4 border-t border-pink-50">
+                <div class="flex items-center justify-between px-2">
+                    <h2 class="font-heading text-xl font-bold text-brand-dark"><i class="fa-solid fa-palette text-amber-400 mr-1"></i> Visual Art</h2>
+                    <span class="text-[10px] text-brand-subtle">Swipe <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+
+                <div class="flex overflow-x-auto gap-4 pb-2 snap-x hide-scrollbar px-2">
+                    <div class="snap-start shrink-0 w-60 rounded-3xl glass-card border border-white shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="h-32 bg-pink-100 overflow-hidden"><img src="https://placehold.co/400x300/ffb7c5/ffffff?text=Pastel+Sunset" alt="Pastel Sunset" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
+                        <div class="p-3"><h3 class="font-heading font-bold text-sm text-brand-dark">Pastel Sunset Dream</h3></div>
                     </div>
-                    <div class="md:col-span-7 space-y-4 text-brand-subtle text-sm md:text-base leading-relaxed">
-                        <p>
-                            Bagi saya, karya seni bukan hanya sekadar hiburan visual atau pendengaran, melainkan sebuah **pengalaman emosional**. Dengan sentuhan warna pastel yang lembut dan melodi santai (*lofi & cute synth*), saya membantu menciptakan identitas kreatif yang ramah dan menenangkan.
-                        </p>
-                        <p>
-                            Baik Anda seorang Vtuber, pembuat konten YouTube, *streamer*, atau pemilik jenama (*brand*), saya memadukan elemen audio dan animasi visual untuk membangun suasana unik bagi audiens Anda.
-                        </p>
+                    <div class="snap-start shrink-0 w-60 rounded-3xl glass-card border border-white shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="h-32 bg-purple-100 overflow-hidden"><img src="https://placehold.co/400x300/e2d5f8/ffffff?text=Cozy+Room" alt="Cozy Room" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
+                        <div class="p-3"><h3 class="font-heading font-bold text-sm text-brand-dark">Cozy Lofi Room</h3></div>
+                    </div>
+                    <div class="snap-start shrink-0 w-60 rounded-3xl glass-card border border-white shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="h-32 bg-amber-100 overflow-hidden"><img src="https://placehold.co/400x300/ffd3b6/ffffff?text=Chibi+Mascot" alt="Chibi Mascot" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
+                        <div class="p-3"><h3 class="font-heading font-bold text-sm text-brand-dark">Cute Chibi Mascot</h3></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="services" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto space-y-12">
-            <div class="text-center space-y-3 max-w-2xl mx-auto">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-pink">Layanan Kreatif</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-dark">Apa Yang Bisa Kita Ciptakan Bersama?</h2>
-                <p class="text-brand-subtle text-sm">Spesialisasi dalam pembuatan audio unik & aset visual bertema manis & modern.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border border-white group">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-pinklight flex items-center justify-center text-brand-pink text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div class="mt-4 relative overflow-hidden rounded-3xl glass-card border-2 border-white p-6 sm:p-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-pink-100/50">
+                <!-- Background Decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-pinklight rounded-full blur-3xl -z-10 opacity-70 translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-brand-lavenderlight rounded-full blur-3xl -z-10 opacity-70 -translate-x-1/2 translate-y-1/2"></div>
+                
+                <div class="space-y-2 z-10 flex-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-pink shadow-sm text-[10px] sm:text-xs font-bold text-brand-pink mb-1">
+                        <i class="fa-solid fa-sparkles text-brand-pink"></i> Premium Assets
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-brand-dark mb-3">Custom Audio Branding</h3>
-                    <p class="text-brand-subtle text-sm leading-relaxed mb-6">
-                        Jingle khusus, Audio Intro/Outro YouTube, sound effect unik untuk streamer, dan nada notifikasi identitas brand Anda.
+                    <h2 class="font-heading text-xl sm:text-2xl font-extrabold text-brand-dark">Bring Home the Pastel Magic! 🛍️</h2>
+                    <p class="text-brand-subtle text-xs sm:text-sm leading-relaxed max-w-xl mx-auto sm:mx-0">
+                        Interested in my exclusive audio & visual collections? Visit my Payhip store to find beautiful assets to bring your creative projects to life.
                     </p>
-                    <ul class="text-xs text-brand-dark font-medium space-y-2">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-pink"></i> Intro & Outro Cute Pop</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-pink"></i> Stream Alert Sound Effects</li>
-                    </ul>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border border-white group">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-lavenderlight flex items-center justify-center text-purple-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-headphones-simple"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-brand-dark mb-3">Musik Digital & Lofi Beats</h3>
-                    <p class="text-brand-subtle text-sm leading-relaxed mb-6">
-                        Komposisi musik latar (*background music*) santai untuk video, ruang kerja, game, hingga projek komersial.
-                    </p>
-                    <ul class="text-xs text-brand-dark font-medium space-y-2">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Cozy Lofi & Chillhop</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Relaxing Synth Melody</li>
-                    </ul>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border border-white group">
-                    <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-palette"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-brand-dark mb-3">Ilustrasi & Animasi 2D</h3>
-                    <p class="text-brand-subtle text-sm leading-relaxed mb-6">
-                        Seni visual warna pastel, ilustrasi karakter lucu, dan loop animasi pendek untuk menyempurnakan audio Anda.
-                    </p>
-                    <ul class="text-xs text-brand-dark font-medium space-y-2">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Visual BGM Loop</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Character Aesthetic Drawing</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="featured" class="py-20 px-4 bg-white/80">
-        <div class="max-w-6xl mx-auto space-y-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-pink">Showcase Audio</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-dark">Karya Musik Pilihan</h2>
-                </div>
-                <p class="text-brand-subtle text-sm max-w-md">Klik tombol play untuk mendengarkan sampel audio sintetis buatan Kyoshii secara interaktif!</p>
-            </div>
-
-            <!-- Music Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="music-grid-container">
-                <!-- Generated dynamically via JavaScript with synthesizer hooks -->
-            </div>
-        </div>
-    </section>
-
-    <section id="soundboard" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto space-y-10">
-            <div class="text-center space-y-3 max-w-2xl mx-auto">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-pink">Interactive Studio</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-dark">Audio Intro & Sound Effects</h2>
-                <p class="text-brand-subtle text-sm">Coba tekan papan suara di bawah untuk mendengarkan efek suara *cute & magic* secara langsung!</p>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                <button onclick="playSFX('pop')" class="glass-card p-5 rounded-2xl hover:scale-105 active:scale-95 transition-all text-center space-y-3 shadow-sm hover:shadow-md border border-pink-100 group">
-                    <div class="w-10 h-10 rounded-xl bg-pink-100 text-brand-pink flex items-center justify-center mx-auto text-lg group-hover:bg-brand-pink group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-bullhorn"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-brand-dark">Intro Pop Cute</p>
-                        <span class="text-[10px] text-brand-subtle">0.5s • FX</span>
-                    </div>
-                </button>
-
-                <button onclick="playSFX('sparkle')" class="glass-card p-5 rounded-2xl hover:scale-105 active:scale-95 transition-all text-center space-y-3 shadow-sm hover:shadow-md border border-purple-100 group">
-                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-500 flex items-center justify-center mx-auto text-lg group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-wand-magic"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-brand-dark">Sparkle Magic</p>
-                        <span class="text-[10px] text-brand-subtle">1.0s • Magic</span>
-                    </div>
-                </button>
-
-                <button onclick="playSFX('bell')" class="glass-card p-5 rounded-2xl hover:scale-105 active:scale-95 transition-all text-center space-y-3 shadow-sm hover:shadow-md border border-amber-100 group">
-                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-500 flex items-center justify-center mx-auto text-lg group-hover:bg-amber-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-bell"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-brand-dark">Happy Bell</p>
-                        <span class="text-[10px] text-brand-subtle">0.8s • Chime</span>
-                    </div>
-                </button>
-
-                <button onclick="playSFX('whoosh')" class="glass-card p-5 rounded-2xl hover:scale-105 active:scale-95 transition-all text-center space-y-3 shadow-sm hover:shadow-md border border-blue-100 group">
-                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-500 flex items-center justify-center mx-auto text-lg group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-wind"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-brand-dark">Whoosh Transisi</p>
-                        <span class="text-[10px] text-brand-subtle">0.4s • Trans</span>
-                    </div>
-                </button>
-
-                <button onclick="playSFX('click')" class="glass-card p-5 rounded-2xl hover:scale-105 active:scale-95 transition-all text-center space-y-3 shadow-sm hover:shadow-md border border-emerald-100 group">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-500 flex items-center justify-center mx-auto text-lg group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-hand-pointer"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-brand-dark">Click UI Bubble</p>
-                        <span class="text-[10px] text-brand-subtle">0.2s • UI</span>
-                    </div>
-                </button>
-
-                <button onclick="playSFX('lullaby')" class="glass-card p-5 rounded-2xl hover:scale-105 active:scale-95 transition-all text-center space-y-3 shadow-sm hover:shadow-md border border-rose-100 group">
-                    <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-500 flex items-center justify-center mx-auto text-lg group-hover:bg-rose-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-moon"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-brand-dark">Outro Lullaby</p>
-                        <span class="text-[10px] text-brand-subtle">1.2s • Soft</span>
-                    </div>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="py-20 px-4 bg-white/60">
-        <div class="max-w-6xl mx-auto space-y-10">
-            <div class="text-center space-y-3 max-w-2xl mx-auto">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-pink">Visual Portfolio</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-dark">Galeri Seni & Animasi</h2>
-                <p class="text-brand-subtle text-sm">Eksplorasi karya visual bertema warna pastel dan karakter imut.</p>
-            </div>
-
-            <!-- Gallery Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="group relative overflow-hidden rounded-3xl glass-card border border-white shadow-md hover:shadow-xl transition-all">
-                    <div class="h-60 bg-pink-100 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/ffb7c5/ffffff?text=Pastel+Sunset+Art" alt="Pastel Sunset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                            <span class="w-10 h-10 rounded-full bg-white text-brand-dark flex items-center justify-center shadow-lg"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-pink">Illustration</span>
-                        <h3 class="font-heading font-bold text-lg text-brand-dark">Pastel Sunset Dream</h3>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="group relative overflow-hidden rounded-3xl glass-card border border-white shadow-md hover:shadow-xl transition-all">
-                    <div class="h-60 bg-purple-100 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/e2d5f8/ffffff?text=Cozy+Lofi+Room" alt="Cozy Lofi Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                            <span class="w-10 h-10 rounded-full bg-white text-brand-dark flex items-center justify-center shadow-lg"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400">Background Art</span>
-                        <h3 class="font-heading font-bold text-lg text-brand-dark">Cozy Lofi Room</h3>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="group relative overflow-hidden rounded-3xl glass-card border border-white shadow-md hover:shadow-xl transition-all">
-                    <div class="h-60 bg-amber-100 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/ffd3b6/ffffff?text=Chibi+Character" alt="Chibi Character" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                            <span class="w-10 h-10 rounded-full bg-white text-brand-dark flex items-center justify-center shadow-lg"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-500">Character Design</span>
-                        <h3 class="font-heading font-bold text-lg text-brand-dark">Cute Chibi Mascot</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- YouTube Animation Showcase Banner -->
-            <div class="gradient-border rounded-3xl p-1 shadow-lg">
-                <div class="bg-white rounded-[22px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-                    <div class="space-y-2">
-                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest"><i class="fa-brands fa-youtube"></i> YouTube Animation</span>
-                        <h3 class="font-heading font-bold text-2xl text-brand-dark">Saksikan Proses Pembuatan & Animasi Terbaru</h3>
-                        <p class="text-brand-subtle text-sm">Tonton speedpaint, sampel animasi, dan cerita di balik karya Kyoshii.</p>
-                    </div>
-                    <a href="https://youtube.com" target="_blank" class="bg-red-500 hover:bg-red-600 text-white font-semibold text-sm px-8 py-3.5 rounded-full shadow-lg shadow-red-500/30 hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap">
-                        <i class="fa-brands fa-youtube text-lg"></i> Kunjungi Channel
+                
+                <div class="z-10 shrink-0 w-full sm:w-auto">
+                    <!-- Replace '#' below with your Payhip store link -->
+                    <a href="#" target="_blank" rel="noopener" class="group relative flex w-full sm:inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 bg-brand-pink rounded-2xl hover:bg-[#ff8da0] hover:shadow-lg hover:shadow-pink-300/50 hover:-translate-y-1">
+                        <i class="fa-solid fa-cart-shopping mr-2 group-hover:animate-bounce"></i>
+                        Visit Store
                     </a>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Footer Simple -->
-    <footer class="py-12 px-4 bg-brand-pinklight/50 border-t border-white text-center">
-        <div class="max-w-4xl mx-auto space-y-6">
-            <h3 class="font-heading font-bold text-2xl tracking-wide text-brand-dark">Kyoshii Khay11</h3>
-            <p class="text-brand-subtle text-sm max-w-md mx-auto leading-relaxed">Menciptakan karya untuk kesenangan dan berbagi kebahagiaan melalui harmoni audio dan visual yang manis.</p>
-            
-            <div class="flex justify-center gap-6 text-2xl text-brand-subtle pt-2">
-                <a href="#" class="hover:text-brand-pink hover:-translate-y-1 hover:scale-110 transition-all duration-300"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" class="hover:text-brand-pink hover:-translate-y-1 hover:scale-110 transition-all duration-300"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-brand-pink hover:-translate-y-1 hover:scale-110 transition-all duration-300"><i class="fa-brands fa-soundcloud"></i></a>
+    <footer class="py-12 px-4 bg-brand-pinklight border-t border-white text-center rounded-t-[2.5rem]">
+        <div class="max-w-6xl mx-auto space-y-4">
+            <p class="font-heading font-bold text-brand-dark text-lg">Keep Having Fun Creating Art! ✨</p>
+            <div class="flex items-center justify-center gap-6 text-2xl text-brand-subtle">
+                <a href="https://youtube.com" target="_blank" rel="noopener" class="hover:text-brand-pink hover:-translate-y-1 transition-all"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-brand-pink hover:-translate-y-1 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://soundcloud.com" target="_blank" rel="noopener" class="hover:text-brand-pink hover:-translate-y-1 transition-all"><i class="fa-brands fa-soundcloud"></i></a>
             </div>
-            
-            <p class="text-xs text-brand-subtle/70 pt-6 border-t border-white/60 mt-6">&copy; 2026 Kyoshii Khay11. Have a wonderful day!</p>
+            <p class="text-[10px] text-brand-subtle font-medium mt-4">© 2026 Kyoshii Khay11. Have a wonderful day.</p>
         </div>
     </footer>
 
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 glass-card bg-white/90 border border-brand-pink shadow-xl rounded-2xl p-4 flex items-center gap-3 text-sm font-semibold text-brand-dark">
-        <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
-        <span id="toast-msg">Pesan terkirim!</span>
+    <!-- Notification Toast Element -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 transition-all duration-300 z-50 glass-card px-5 py-3 rounded-full shadow-lg border border-pink-200 flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></div>
+        <p id="toast-msg" class="text-sm font-bold text-brand-dark font-heading">Notification</p>
     </div>
 
     <script>
@@ -505,171 +385,49 @@
             }
         }
 
-        // Hero Synthesizer Sound
-        let isHeroPlaying = false;
-        let heroInterval = null;
-
-        function playHeroPreview() {
+        function playBeep(freq, type) {
             initAudio();
-            const btnIcon = document.getElementById('hero-icon');
-            const statusText = document.getElementById('hero-status');
-            const bars = document.querySelectorAll('#visualizer-bars .bar');
-
-            if (isHeroPlaying) {
-                isHeroPlaying = false;
-                btnIcon.className = "fa-solid fa-play text-sm ml-0.5";
-                statusText.innerText = "Paused";
-                clearInterval(heroInterval);
-                bars.forEach(b => b.style.height = '4px');
-                return;
-            }
-
-            isHeroPlaying = true;
-            btnIcon.className = "fa-solid fa-pause text-sm";
-            statusText.innerText = "Playing Live Synth";
-
-            const notes = [261.63, 329.63, 392.00, 523.25, 440.00]; // C4, E4, G4, C5, A4
-            let noteIdx = 0;
-
-            heroInterval = setInterval(() => {
-                if (!isHeroPlaying) return;
-                
-                // Play Synth Note
-                let osc = audioCtx.createOscillator();
-                let gain = audioCtx.createGain();
-                
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(notes[noteIdx], audioCtx.currentTime);
-                
-                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
-                
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.4);
-
-                noteIdx = (noteIdx + 1) % notes.length;
-
-                // Animate visualizer bars
-                bars.forEach(b => {
-                    b.style.height = Math.floor(Math.random() * 12 + 4) + 'px';
-                });
-            }, 300);
-        }
-
-        // Soundboard Effects Generator
-        function playSFX(type) {
-            initAudio();
-            const now = audioCtx.currentTime;
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
-
+            osc.type = type;
+            osc.frequency.value = freq;
             osc.connect(gain);
             gain.connect(audioCtx.destination);
+            osc.start();
+            gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.5);
+            osc.stop(audioCtx.currentTime + 0.5);
+        }
 
-            if (type === 'pop') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(300, now);
-                osc.frequency.exponentialRampToValueAtTime(800, now + 0.15);
-                gain.gain.setValueAtTime(0.3, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
-                osc.start(now);
-                osc.stop(now + 0.15);
-                showToast("🔊 Playing: Intro Pop Cute");
-            } else if (type === 'sparkle') {
-                [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
-                    let o = audioCtx.createOscillator();
-                    let g = audioCtx.createGain();
-                    o.type = 'triangle';
-                    o.frequency.setValueAtTime(freq, now + idx * 0.08);
-                    g.gain.setValueAtTime(0.15, now + idx * 0.08);
-                    g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.3);
-                    o.connect(g);
-                    g.connect(audioCtx.destination);
-                    o.start(now + idx * 0.08);
-                    o.stop(now + idx * 0.08 + 0.3);
-                });
-                showToast("✨ Playing: Sparkle Magic Effect");
-            } else if (type === 'bell') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(880, now);
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
-                osc.start(now);
-                osc.stop(now + 0.8);
-                showToast("🔔 Playing: Happy Bell");
-            } else if (type === 'whoosh') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(150, now);
-                osc.frequency.exponentialRampToValueAtTime(400, now + 0.2);
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
-                osc.start(now);
-                osc.stop(now + 0.25);
-                showToast("💨 Playing: Whoosh Transisi");
-            } else if (type === 'click') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(600, now);
-                gain.gain.setValueAtTime(0.15, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
-                osc.start(now);
-                osc.stop(now + 0.05);
-                showToast("🫧 Playing: Click UI Bubble");
-            } else if (type === 'lullaby') {
-                [440, 392, 349.23, 329.63].forEach((freq, idx) => {
-                    let o = audioCtx.createOscillator();
-                    let g = audioCtx.createGain();
-                    o.type = 'sine';
-                    o.frequency.setValueAtTime(freq, now + idx * 0.2);
-                    g.gain.setValueAtTime(0.12, now + idx * 0.2);
-                    g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.2 + 0.5);
-                    o.connect(g);
-                    g.connect(audioCtx.destination);
-                    o.start(now + idx * 0.2);
-                    o.stop(now + idx * 0.2 + 0.5);
-                });
-                showToast("🌙 Playing: Outro Lullaby");
+        function playMusic(title) {
+            showToast('🎵 Playing: ' + title);
+            playBeep(440, 'sine');
+            setTimeout(() => playBeep(554, 'sine'), 200);
+            setTimeout(() => playBeep(659, 'sine'), 400);
+        }
+
+        function playSFX(type) {
+            showToast('🔊 Playing SFX: ' + type);
+            if (type === 'pop') playBeep(600, 'sine');
+            else if (type === 'sparkle') {
+                playBeep(880, 'triangle');
+                setTimeout(() => playBeep(1174, 'triangle'), 100);
+            }
+            else if (type === 'bell') playBeep(1046, 'sine');
+            else if (type === 'whoosh') playBeep(300, 'sawtooth');
+            else if (type === 'click') playBeep(800, 'square');
+            else if (type === 'lullaby') {
+                playBeep(523, 'sine');
+                setTimeout(() => playBeep(659, 'sine'), 200);
             }
         }
 
-        // Render Featured Music Cards
-        const tracks = [
-            "Sweet Melody Dream", "Pastel Sunset Lofi", "Magical Sparkle Beats",
-            "Cotton Candy Breeze", "Starlight Journey", "Cozy Afternoon Chill",
-            "Cloud Surfing", "Vanilla Sky Beats", "Rainbow Drops",
-            "Midnight Lullaby", "Peachy Morning", "Starry Night Groove"
-        ];
-
-        let currentlyPlayingTrack = null;
-
-        function renderTracks() {
-            const container = document.getElementById('music-grid-container');
-            container.innerHTML = tracks.map((title, index) => `
-                <div class="glass-card p-5 rounded-2xl flex items-center justify-between border border-pink-50 shadow-sm hover:shadow-md transition-all">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-brand-pinklight text-brand-pink flex items-center justify-center font-bold text-xs">
-                            0${index + 1}
-                        </div>
-                        <div>
-                            <p class="font-bold text-sm text-brand-dark truncate max-w-[150px] sm:max-w-[180px]">${title}</p>
-                            <span class="text-[10px] text-brand-subtle">Original Track • Kyoshii</span>
-                        </div>
-                    </div>
-                    <button onclick="playTrack(${index}, '${title}')" class="w-9 h-9 rounded-full bg-brand-pink text-white flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 transition-all text-xs" id="track-btn-${index}">
-                        <i class="fa-solid fa-play"></i>
-                    </button>
-                </div>
-            `).join('');
+        function playHeroPreview() {
+            showToast('▶️ Live Synth: Pastel Dream');
+            playBeep(523, 'square');
+            setTimeout(() => playBeep(659, 'square'), 150);
+            setTimeout(() => playBeep(783, 'square'), 300);
         }
-
-        function playTrack(index, title) {
-            initAudio();
-            playSFX('sparkle');
-            showToast(`🎵 Memutar karya: ${title}`);
-        }
-
+        
         // Toast Notification System
         function showToast(msg) {
             const toast = document.getElementById('toast');
@@ -678,7 +436,7 @@
             toast.classList.remove('translate-y-20', 'opacity-0');
             setTimeout(() => {
                 toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
+            }, 2500);
         }
 
         // Mobile Nav Toggle
@@ -687,11 +445,6 @@
             menu.classList.toggle('hidden');
             menu.classList.toggle('flex');
         });
-
-        // Initialize Page
-        window.onload = function() {
-            renderTracks();
-        }
     </script>
 </body>
 </html>
