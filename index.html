@@ -676,5 +676,33 @@
             menu.classList.toggle('flex');
         });
     </script>
+    <!-- ... existing code ... -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 transition-all duration-300 z-50 glass-card px-5 py-3 rounded-full shadow-lg border border-pink-200 flex items-center gap-3 pointer-events-none">
+        <div class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></div>
+        <p id="toast-msg" class="text-sm font-bold text-brand-dark font-heading">Notification</p>
+    </div>
+
+    <!-- Tambahkan kode ini untuk Modal Zoom -->
+    <div id="image-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onclick="closeModal()">
+        <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white text-3xl hover:text-brand-pink">&times;</button>
+            <img id="modal-img" src="" alt="Zoomed Art" class="w-full h-auto rounded-2xl shadow-2xl">
+        </div>
+    </div>
+
+    <script>
+function openModal(imgSrc) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = imgSrc;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
 </body>
 </html>
